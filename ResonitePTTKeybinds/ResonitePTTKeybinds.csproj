@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{0322B2EF-7452-479D-BAE2-FCAB75033337}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResonitePTTKeybinds</RootNamespace>
+    <AssemblyTitle>ResonitePTTKeybinds</AssemblyTitle>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net472</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <CopyLocal>false</CopyLocal>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(ResonitePath)'==''">
+    <ResonitePath>$(MSBuildThisFileDirectory)Resonite/</ResonitePath>
+    <ResonitePath Condition="Exists('R:\SteamLibrary\steamapps\common\Resonite\')">R:\SteamLibrary\steamapps\common\Resonite\</ResonitePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ResoniteModLoader">
+      <HintPath>$(ResonitePath)Libraries\ResoniteModLoader.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HarmonyLib">
+      <HintPath>$(ResonitePath)rml_libs\0Harmony.dll</HintPath>
+      <HintPath Condition="Exists('$(ResonitePath)0Harmony.dll')">$(ResonitePath)0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FrooxEngine">
+      <HintPath>$(ResonitePath)Resonite_Data\Managed\FrooxEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
