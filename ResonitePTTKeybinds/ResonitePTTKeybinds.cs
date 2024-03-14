@@ -135,8 +135,6 @@ public class ResonitePTTKeybinds : ResoniteMod {
 	[HarmonyPatch(typeof(UserspaceRadiantDash), "OnAttach")]
 	class UserspaceRadiantDashOnAttach_Patch {
 		static void Postfix(UserspaceRadiantDash __instance) {
-			//Engine.Current.WorldManager.
-			Msg("Attached in Userspace");
 			Slot overlayRoot = __instance.World.GetGloballyRegisteredComponent<OverlayManager>().OverlayRoot; // Root/Userspace/Overlay/
 			Slot vmp = overlayRoot.AddSlot("VoiceModeProxy", false);
 			VoiceModeSync vms = vmp.AttachComponent<VoiceModeSync>();
