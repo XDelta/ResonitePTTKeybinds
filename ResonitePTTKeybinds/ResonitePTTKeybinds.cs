@@ -7,7 +7,7 @@ namespace ResonitePTTKeybinds;
 public class ResonitePTTKeybinds : ResoniteMod {
 	public override string Name => "PTT Keybinds";
 	public override string Author => "Delta";
-	public override string Version => "1.4.0";
+	public override string Version => "1.5.0";
 	public override string Link => "https://github.com/XDelta/ResonitePTTKeybinds";
 
 	//TODO keycode config for rebinding activation keys
@@ -98,34 +98,34 @@ public class ResonitePTTKeybinds : ResoniteMod {
 				return;
 			}
 			if (__instance.InputInterface.GetKeyDown(Config.GetValue(MuteKey))) {
-				__instance.InputInterface.IsMuted = true;
+				__instance.AudioSystem.IsMuted = true;
 				Debug("Mute Keybind pressed: " + Config.GetValue(MuteKey));
 			}
 			if (__instance.InputInterface.GetKeyDown(Config.GetValue(WhisperKey))) {
 				if (VoiceMode.Whisper <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Whisper;
-					__instance.InputInterface.IsMuted = false;
+					__instance.AudioSystem.IsMuted = false;
 					Debug("Whisper Keybind pressed: " + Config.GetValue(WhisperKey));
 				}
 			}
 			if (__instance.InputInterface.GetKeyDown(Config.GetValue(NormalKey))) {
 				if (VoiceMode.Normal <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Normal;
-					__instance.InputInterface.IsMuted = false;
+					__instance.AudioSystem.IsMuted = false;
 					Debug("Normal Keybind pressed: " + Config.GetValue(NormalKey));
 				}
 			}
 			if (__instance.InputInterface.GetKeyDown(Config.GetValue(ShoutKey))) {
 				if (VoiceMode.Shout <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Shout;
-					__instance.InputInterface.IsMuted = false;
+					__instance.AudioSystem.IsMuted = false;
 					Debug("Shout Keybind pressed: " + Config.GetValue(ShoutKey));
 				}
 			}
 			if (__instance.InputInterface.GetKeyDown(Config.GetValue(BroadcastKey))) {
 				if (VoiceMode.Broadcast <= __instance.FocusedWorldMaxAllowedVoiceMode.Value) {
 					__instance.FocusedWorldVoiceMode.Value = VoiceMode.Broadcast;
-					__instance.InputInterface.IsMuted = false;
+					__instance.AudioSystem.IsMuted = false;
 					Debug("Broadcast Keybind pressed: " + Config.GetValue(BroadcastKey));
 				}
 			}
