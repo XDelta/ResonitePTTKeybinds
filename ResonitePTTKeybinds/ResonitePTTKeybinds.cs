@@ -2,12 +2,14 @@
 using ResoniteModLoader;
 using FrooxEngine;
 using System;
+using Renderite.Shared;
 
 namespace ResonitePTTKeybinds;
 public class ResonitePTTKeybinds : ResoniteMod {
+	internal const string VERSION_CONSTANT = "1.5.1";
 	public override string Name => "PTT Keybinds";
 	public override string Author => "Delta";
-	public override string Version => "1.5.0";
+	public override string Version => VERSION_CONSTANT;
 	public override string Link => "https://github.com/XDelta/ResonitePTTKeybinds";
 
 	//TODO keycode config for rebinding activation keys
@@ -46,9 +48,8 @@ public class ResonitePTTKeybinds : ResoniteMod {
 	public override void OnEngineInit() {
 		Config = GetConfiguration();
 		Config.Save(true);
-		Harmony harmony = new Harmony("net.deltawolf.ResonitePTTKeybinds");
+		Harmony harmony = new("net.deltawolf.ResonitePTTKeybinds");
 		harmony.PatchAll();
-		Msg("VoiceMode keybinds patched!");
 	}
 
 	//TODO Config watcher, on changes beable to clear and set
@@ -59,7 +60,7 @@ public class ResonitePTTKeybinds : ResoniteMod {
 		public static void Postfix(KeyboardAndMouseBindingGenerator __instance, InputGroup group) {
 			try {
 				if (group is GlobalActions globalActions) {
-					if (Config.GetValue(remapKeys)) {
+					if (remapKeys.Value) {
 						globalActions.ToggleMute.ClearBindings();
 						globalActions.ActivateTalk.ClearBindings();
 						Debug("Clearing all PTT binds as remapKeys is enabled");
