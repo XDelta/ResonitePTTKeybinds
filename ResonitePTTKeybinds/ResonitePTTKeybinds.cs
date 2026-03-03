@@ -1,12 +1,15 @@
-﻿using HarmonyLib;
-using ResoniteModLoader;
 using FrooxEngine;
-using System;
+
+using HarmonyLib;
+
 using Renderite.Shared;
 
+using ResoniteModLoader;
+
 namespace ResonitePTTKeybinds;
+
 public class ResonitePTTKeybinds : ResoniteMod {
-	internal const string VERSION_CONSTANT = "1.5.1";
+	internal const string VERSION_CONSTANT = "1.5.2";
 	public override string Name => "PTT Keybinds";
 	public override string Author => "Delta";
 	public override string Version => VERSION_CONSTANT;
@@ -83,7 +86,7 @@ public class ResonitePTTKeybinds : ResoniteMod {
 						}
 					}
 				}
-			} catch (Exception e){
+			} catch (Exception e) {
 				Error(e);
 			}
 		}
