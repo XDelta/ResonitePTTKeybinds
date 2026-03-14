@@ -1,4 +1,4 @@
-# ResonitePTTKeybinds
+# PTTKeybinds
 A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that can disable or remap the Push to Talk / Mute keybinds on Mouse5, M, and V. Set remapped keys using [ResoniteModSettings](https://github.com/badhaloninja/ResoniteModSettings) in-game. Additionally allows setting keybinds to set your current Voicemode.
 
 ## Installation
